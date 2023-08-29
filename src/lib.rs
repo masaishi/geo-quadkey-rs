@@ -81,7 +81,7 @@ impl Quadkey {
     }
 
     pub fn pixel_to_coordinates(pixel_x: i32, pixel_y: i32, precision: usize) -> (f64, f64) {
-        let map_size = Self::map_size(precision) as f64;
+        let map_size = Self::map_size(precision);
         let x = (Self::clip(pixel_x as f64, 0.0, map_size - 1.0) / map_size) - 0.5;
         let y = 0.5 - (Self::clip(pixel_y as f64, 0.0, map_size - 1.0) / map_size);
 
@@ -109,7 +109,7 @@ impl Quadkey {
         let mut quadkey = String::new();
 
         for i in (1..=precision).rev() {
-            let mut digit = '0' as u8;
+            let mut digit = b'0';
             let mask = 1 << (i - 1);
             if (tile_x & mask) != 0 {
                 digit += 1;
