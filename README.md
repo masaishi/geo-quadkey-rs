@@ -1,5 +1,5 @@
 # geo-quadkey-rs
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/masaishi/geo-quadkey-rs/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/masaishi/geo-quadkey-rs/blob/main/LICENSE) [![crates.io](https://img.shields.io/crates/v/geo-quadkey-rs.svg?logo=rust)](https://crates.io/crates/geo-quadkey-rs)
 
 `geo-quadkey-rs` is a Rust library for encoding and decoding geographical coordinates to and from QuadKeys, a tiling approach used by Microsoft's [Bing Maps Tile System](https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system) for interactive mapping solutions.
 

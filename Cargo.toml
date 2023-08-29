@@ -7,5 +7,5 @@ keywords = ["quadkey", "geographic"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/masaishi/geo-quadkey.rs"
 
-[dependencies]
+[dev-dependencies]
 assert_float_eq = "1.0"
