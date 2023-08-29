@@ -30,13 +30,23 @@ impl Quadkey {
         let (tile_x, tile_y, precision) = Self::quadkey_to_tile(quadkey);
         let mut neighbors = Vec::new();
         let permutation = [
-            [-1, -1], [0, -1], [1, -1],
-            [-1,  0], [0,  0], [1,  0],
-            [-1,  1], [0,  1], [1,  1]
+            [-1, -1],
+            [0, -1],
+            [1, -1],
+            [-1, 0],
+            [0, 0],
+            [1, 0],
+            [-1, 1],
+            [0, 1],
+            [1, 1],
         ];
         for value in permutation.iter() {
             let [perm_x, perm_y] = *value;
-            neighbors.push(Self::tile_to_quadkey(tile_x + perm_x, tile_y + perm_y, precision));
+            neighbors.push(Self::tile_to_quadkey(
+                tile_x + perm_x,
+                tile_y + perm_y,
+                precision,
+            ));
         }
 
         neighbors
@@ -54,7 +64,7 @@ impl Quadkey {
         let latitude = Self::clip(latitude, Self::MIN_LATITUDE, Self::MAX_LATITUDE);
         (latitude.to_radians().cos() * 2.0 * PI * Self::EARTH_RADIUS) / Self::map_size(precision)
     }
-    
+
     pub fn coordinates_to_pixel(latitude: f64, longitude: f64, precision: usize) -> (i32, i32) {
         let latitude = Self::clip(latitude, Self::MIN_LATITUDE, Self::MAX_LATITUDE);
         let longitude = Self::clip(longitude, Self::MIN_LONGITUDE, Self::MAX_LONGITUDE);
@@ -74,10 +84,10 @@ impl Quadkey {
         let map_size = Self::map_size(precision) as f64;
         let x = (Self::clip(pixel_x as f64, 0.0, map_size - 1.0) / map_size) - 0.5;
         let y = 0.5 - (Self::clip(pixel_y as f64, 0.0, map_size - 1.0) / map_size);
-    
-        let latitude = 90.0 - 360.0 * ( (-y * 2.0 * PI).exp().atan() / PI);
+
+        let latitude = 90.0 - 360.0 * ((-y * 2.0 * PI).exp().atan() / PI);
         let longitude = 360.0 * x;
-    
+
         (latitude, longitude)
     }
 
@@ -121,13 +131,13 @@ impl Quadkey {
         for (i, digit) in quadkey.chars().enumerate() {
             let mask = 1 << (precision - i - 1);
             match digit {
-                '0' => {},
+                '0' => {}
                 '1' => tile_x |= mask,
                 '2' => tile_y |= mask,
                 '3' => {
                     tile_x |= mask;
                     tile_y |= mask;
-                },
+                }
                 _ => panic!("Invalid Quadkey digit sequence."),
             }
         }
