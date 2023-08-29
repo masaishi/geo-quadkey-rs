@@ -1,8 +1,6 @@
-#[macro_use]
-extern crate assert_float_eq;
-
 #[cfg(test)]
 mod tests {
+    use assert_float_eq::*;
     use geo_quadkey_rs::Quadkey;
 
     #[test]
