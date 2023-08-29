@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["geo_quadkey_rs"];

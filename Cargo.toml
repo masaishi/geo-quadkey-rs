@@ -11,5 +11,5 @@ documentation = "https://github.com/masaishi/geo-quadkey-rs"
 homepage = "https://github.com/masaishi/geo-quadkey-rs"
 readme = "README.md"
 
-[dependencies]
+[dev-dependencies]
 assert_float_eq = "1.0"
