@@ -7,7 +7,7 @@ keywords = ["quadkey", "geographic"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/masaishi/geo-quadkey-rs"
 description = "geo-quadkey-rs is a Rust library for encoding and decoding geographical coordinates to and from QuadKeys, a tiling approach used by Microsoft's Bing Maps Tile System for interactive mapping solutions."
-documentation = "https://github.com/masaishi/geo-quadkey-rs"
+documentation = "https://docs.rs/geo-quadkey-rs/0.1.0/geo_quadkey_rs"
 homepage = "https://github.com/masaishi/geo-quadkey-rs"
 readme = "README.md"
 
