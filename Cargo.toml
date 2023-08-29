@@ -1,6 +1,6 @@
 [package]
 name = "geo-quadkey-rs"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["masaishi <masaishi@yahoo.co.jp>"]
 edition = "2021"
 keywords = ["quadkey", "geographic"]
