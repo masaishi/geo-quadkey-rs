@@ -1,0 +1,11 @@
+[package]
+name = "geo-quadkey-rs"
+version = "0.1.0"
+authors = ["masaishi <masaishi@yahoo.co.jp>"]
+edition = "2021"
+keywords = ["quadkey", "geographic"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/masaishi/geo-quadkey.rs"
+
+[dependencies]
+assert_float_eq = "1.0"
