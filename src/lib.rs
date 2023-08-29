@@ -9,12 +9,14 @@ impl Quadkey {
     const MAX_LONGITUDE: f64 = 180.0;
     const EARTH_RADIUS: f64 = 6378137.0;
 
+    /// Encode coordinates to a quadkey
     pub fn encode(latitude: f64, longitude: f64, precision: usize) -> String {
         let (pixel_x, pixel_y) = Self::coordinates_to_pixel(latitude, longitude, precision);
         let (tile_x, tile_y) = Self::pixel_to_tile(pixel_x, pixel_y);
         Self::tile_to_quadkey(tile_x, tile_y, precision)
     }
 
+    /// Decode a quadkey to coordinates
     pub fn decode(quadkey: &str) -> (f64, f64, usize) {
         let (tile_x, tile_y, precision) = Self::quadkey_to_tile(quadkey);
         let (pixel_x, pixel_y) = Self::tile_to_pixel(tile_x, tile_y);
@@ -23,6 +25,7 @@ impl Quadkey {
         (latitude, longitude, precision)
     }
 
+    /// Find neighbors of a quadkey
     pub fn neighbors(quadkey: &str) -> Vec<String> {
         let (tile_x, tile_y, precision) = Self::quadkey_to_tile(quadkey);
         let mut neighbors = Vec::new();
